@@ -1,0 +1,81 @@
+{
+  "created": "1711998441667",
+  "updated": "1711998441667",
+  "name": "公開用",
+  "description": "",
+  "tags": [],
+  "pieces": [
+    "@activepieces/piece-rss",
+    "@activepieces/piece-discord"
+  ],
+  "template": {
+    "displayName": "公開用",
+    "trigger": {
+      "name": "trigger",
+      "valid": false,
+      "displayName": "New Item In Feed",
+      "type": "PIECE_TRIGGER",
+      "settings": {
+        "pieceName": "@activepieces/piece-rss",
+        "pieceVersion": "~0.3.7",
+        "pieceType": "OFFICIAL",
+        "packageType": "REGISTRY",
+        "triggerName": "new-item",
+        "input": {},
+        "inputUiInfo": {}
+      },
+      "nextAction": {
+        "name": "step_2",
+        "type": "CODE",
+        "valid": true,
+        "settings": {
+          "input": {
+            "link": "{{trigger}}"
+          },
+          "sourceCode": {
+            "code": "export const code = async (inputs) => {\n    //取得したRSSのTwitterURL部分を取得(※inputs.link.linkにしないと取得できないケースあり)\n    const rssInportUrl = inputs.link;\n    //取得したリンクがTwitterのものであればリンクを返却\n    if (rssInportUrl.includes('https://twitter.com/')) {\n        return rssInportUrl;\n        //const twitterUrl = rssInportUrl.replace('https://twitter.com/', 'https://vxtwitter.com/');\n        //return twitterUrl;\n    } else {\n        return \"The URL provided is incorrect or has not been retrieved.\";\n}};",
+            "packageJson": "\n      {\n        \"dependencies\": {\n        }\n      }"
+          },
+          "inputUiInfo": {},
+          "errorHandlingOptions": {
+            "retryOnFailure": {
+              "value": false
+            },
+            "continueOnFailure": {
+              "value": false
+            }
+          }
+        },
+        "nextAction": {
+          "name": "step_1",
+          "type": "PIECE",
+          "valid": false,
+          "settings": {
+            "input": {
+              "tts": false,
+              "embeds": "[]"
+            },
+            "pieceName": "@activepieces/piece-discord",
+            "pieceType": "OFFICIAL",
+            "actionName": "send_message_webhook",
+            "inputUiInfo": {},
+            "packageType": "REGISTRY",
+            "pieceVersion": "~0.3.10",
+            "errorHandlingOptions": {
+              "retryOnFailure": {
+                "value": false
+              },
+              "continueOnFailure": {
+                "value": false
+              }
+            }
+          },
+          "displayName": "Send Message Webhook"
+        },
+        "displayName": "Code"
+      }
+    },
+    "valid": false
+  },
+  "blogUrl": ""
+}
