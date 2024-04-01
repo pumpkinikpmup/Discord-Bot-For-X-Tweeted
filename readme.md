@@ -6,13 +6,13 @@ Discordの任意のテキストチャンネルにBotとして特定ユーザの�
 - Discordの設定-詳細設定から開発者モードがオンになっているかを確認してください
 ## 使用ツール
 - Discord
-- RSS.app<https://rss.app/ja>
+- RSS.app<br><https://rss.app/ja>
     - Xのポストを取得する際に使用するツール、外部ツールのためサービスが終了可能性あり
-- Flows<https://cloud.activepieces.com/sign-in>
+- Flows<br><https://cloud.activepieces.com/sign-in>
     - RSS.appで取得したポストのデータに更新があった際にDiscordのbotを通じてメッセージを送信する等のフローを作成できるツール
     - Botを簡単に作成できるためのフローを事前に用意してあるのでご使用ください。（Xポスト通知DiscordBot公開用.json）
 - Discord開発者ツール
-    - DiscordBotを作成する際に必要になるトークンを発行するために使用<https://discord.com/developers/applications?new_application=true>
+    - DiscordBotを作成する際に必要になるトークンを発行するために使用<br><https://discord.com/developers/applications?new_application=true>
 ## RSS.app
 - まずはログインまたはサインイン
 - 右上のNewFeedで新規作成→Twitter RSS Feed→少し下にGenerate RSS Feed of a Twitter User Feedがあるのでそこにポストの通知を呼びたいアカウントのIDを入力し、Generate
